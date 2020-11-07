@@ -19,7 +19,6 @@ def get_account_data(name):
     if r_1.status_code == 404:
         print("Error: user " + name + " does not exist.")
         return -1
-    print(r_1.status_code)
     account_data = r_1.json()
     account_id = account_data["accountId"]
 

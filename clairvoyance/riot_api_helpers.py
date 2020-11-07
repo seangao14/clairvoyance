@@ -2,8 +2,8 @@ import json
 import requests
 import urllib.parse
 
-def url_to_json(url):
-    return requests.get(url).json()
+'''def url_to_json(url):
+    return requests.get(url).json()'''
 
 def get_summoner(api_key, arg, region='na1'):
     '''
@@ -27,7 +27,7 @@ def get_match(api_key, arg, region='na1'):
     returns a json
     '''
     url = f'https://{region}.api.riotgames.com/lol/match/v4/matches/{arg}?api_key={api_key}'
-    return url_to_json(url)
+    return requests.get(url)
 
 def get_timeline(api_key, arg, region='na1'):
     '''
