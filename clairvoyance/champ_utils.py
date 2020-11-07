@@ -34,8 +34,23 @@ def name_from_rid():
     names_dict = names.to_dict()
     return names_dict
 
+def idx_from_name():
+    with open('data/champions.json', encoding='utf-8') as f:
+        champs = json.load(f)
+
+    df = pd.DataFrame.from_dict(champs['data'], orient='index')
+
+    names = df['key']
+    names = pd.Series(dict((v,k) for k,v in names.iteritems()))
+    names_dict = names.to_dict()
+    
+    champ_dict = dict((champ, idx) for idx, champ in enumerate(names_dict.values()))
+
+    return champ_dict
+
 
 idx_rid_dict = idx_from_rid()
 
 name_rid_dict = name_from_rid()
 
+idx_name_dict = idx_from_name()

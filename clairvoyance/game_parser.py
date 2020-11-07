@@ -1,5 +1,6 @@
 import numpy as np
 from champ_utils import idx_rid_dict as champ_dict
+from champ_utils import idx_name_dict
 
 def parse_game(timeline, match):
     # blue win = 0, red win = 1
@@ -182,3 +183,19 @@ def parse_game(timeline, match):
         data.append(frame)
         y.append(winner)
     return data, y
+
+def custom_game(timestamp, champions, blue_gold, red_gold, blue_exp, red_exp, bk, rk, bt, rt, bi, ri, bm, rm):
+
+    picked = []
+    picked.append([idx_name_dict[champ] for champ in champions])
+    picked = picked[0]
+    
+    five_hot1 = np.zeros((len(champ_dict),), dtype=int)
+    for j in picked[0:5]:
+        five_hot1[j] = 1
+    five_hot2 = np.zeros((len(champ_dict),), dtype=int)
+    for k in picked[5:10]:
+        five_hot2[k] = 1
+    data = [timestamp] +  list(np.concatenate((five_hot1, five_hot2))) + [blue_gold/100000] + [red_gold/100000]
+    data = data + [blue_exp] + [red_exp] + [bk/50] + [rk/50] + [bt/11] + [rt/11] + [bi/3]+ [ri/3] + bm + rm
+    return data
