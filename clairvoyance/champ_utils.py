@@ -32,10 +32,10 @@ def name_from_rid():
     names = df['key']
     names = pd.Series(dict((k,v) for k,v in names.iteritems()))
     names_dict = names.to_dict()
-    return names_from_rid()
+    return names_dict
 
 
 idx_rid_dict = idx_from_rid()
 
-names_rid_dict = names_from_rid()
+name_rid_dict = name_from_rid()
 

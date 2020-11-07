@@ -21,6 +21,14 @@ def get_matchlist(api_key, arg, region='na1'):
     url = f'https://{region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{urllib.parse.quote(arg)}?api_key={api_key}'
     return url_to_json(url)
 
+def get_match(api_key, arg, region='na1'):
+    '''
+    @arg takes gameId
+    returns a json
+    '''
+    url = f'https://{region}.api.riotgames.com/lol/match/v4/matches/{urllib.parse.quote(arg)}?api_key={api_key}'
+    return url_to_json(url)
+
 def get_timeline(api_key, arg, region='na1'):
     '''
     @arg takes matchId
