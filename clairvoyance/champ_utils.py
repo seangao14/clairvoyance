@@ -1,0 +1,39 @@
+import pandas as pd
+import json
+
+# rid = riot id for the champion
+
+def idx_from_rid():
+    with open('data/champions.json', encoding='utf-8') as f:
+        champs = json.load(f)
+
+    df = pd.DataFrame.from_dict(champs['data'], orient='index')
+
+    names = df['key']
+    names = pd.Series(dict((v,k) for k,v in names.iteritems()))
+    names_dict = names.to_dict()
+    
+    # maps champion name to index
+    # champ_dict = dict((champ, idx) for idx, champ in enumerate(names_dict.values()))
+
+    # maps riot champion id to index
+    nums_dict = dict((champ_key, idx) for idx, champ_key in enumerate(names_dict.keys()))
+    
+    return nums_dict
+
+def name_from_rid():
+    with open('data/champions.json', encoding='utf-8') as f:
+        champs = json.load(f)
+
+    df = pd.DataFrame.from_dict(champs['data'], orient='index')
+
+    names = df['key']
+    names = pd.Series(dict((k,v) for k,v in names.iteritems()))
+    names_dict = names.to_dict()
+    return names_from_rid()
+
+
+idx_rid_dict = idx_from_rid()
+
+names_rid_dict = names_from_rid()
+
