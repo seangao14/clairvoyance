@@ -30,7 +30,7 @@ def name_from_rid():
     df = pd.DataFrame.from_dict(champs['data'], orient='index')
 
     names = df['key']
-    names = pd.Series(dict((k,v) for k,v in names.iteritems()))
+    names = pd.Series(dict((v,k) for k,v in names.iteritems()))
     names_dict = names.to_dict()
     return names_dict
 
