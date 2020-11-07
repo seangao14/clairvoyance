@@ -26,6 +26,9 @@ def parse_game(timeline, match):
     bk, rk = 0, 0
     # blue/red tower count
     bt, rt = 11, 11
+    # blue/red inhib count
+    #   when they respawn the count should update
+    bi, ri = 3, 3
     # blue/red monster kills, [air, earth, fire, water, elder, herald, baron] (repeated twice)
     #   for elder and baron, it will be a toggle, toggling to 1 on kill and back to 0 when timer runs out
     brmk = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
@@ -37,6 +40,10 @@ def parse_game(timeline, match):
     # tracking variables (should probably do the same for herald but thats scuffed)
     # elder lasts 150 000 (150 seconds), baron lasts 180 000 (180 seconds)
     elder_kill_time, baron_kill_time = None, None
+
+    # inhibitors last 300 000 when killed (5 minutes)
+    # false indicates not killed (or respawned), otherwise will be a timer
+    bi_kill_time, ri_kill_time = [False, False, False], [False, False, False]
 
     data = []
     y = []
@@ -57,6 +64,24 @@ def parse_game(timeline, match):
                 brmk[0][6] = 0
                 brmk[1][6] = 0
 
+        # check if inhib respawned
+        # inhibs respawn in 5 minutes, 300,000
+        if sum(bi_kill_time) > 0:
+            for i,t in enumerate(bi_kill_time):
+                if t == False:
+                    break
+                if timestamp - t >= 300000:
+                    bi += 1
+                    bi_kill_time[i] = False
+        
+        if sum(ri_kill_time) > 0:
+            for i,t in enumerate(ri_kill_time):
+                if t == False:
+                    break
+                if timestamp - t >= 300000:
+                    ri += 1
+                    ri_kill_time[i] = False
+
         # loop through each event
         for e_idx in range(len(timeline['frames'][f_idx]['events'])):
             event_type = timeline['frames'][f_idx]['events'][e_idx]['type']
@@ -70,10 +95,19 @@ def parse_game(timeline, match):
                     rk += 1
 
             elif event_type == 'BUILDING_KILL':
-                if timeline['frames'][f_idx]['events'][e_idx]['teamId'] == 100: # 100 = blue team
-                    bt -= 1
-                else:
-                    rt -= 1
+                building_type = timeline['frames'][f_idx]['events'][e_idx]['buildingType']
+                if building_type == 'TOWER_BUILDING':
+                    if timeline['frames'][f_idx]['events'][e_idx]['teamId'] == 100: # 100 = blue team
+                        bt -= 1
+                    else:
+                        rt -= 1
+                elif building_type == 'INHIBITOR_BUILDING':
+                    if timeline['frames'][f_idx]['events'][e_idx]['teamId'] == 100: # 100 = blue team
+                        bi -= 1
+                        bi_kill_time[bi_kill_time.index(False)] = timestamp
+                    else:
+                        ri -= 1
+                        ri_kill_time[ri_kill_time.index(False)] = timestamp
 
             elif event_type == 'ELITE_MONSTER_KILL':
                 monster_type = timeline['frames'][f_idx]['events'][e_idx]['monsterType']
@@ -140,6 +174,8 @@ def parse_game(timeline, match):
         frame.extend([rk/50])
         frame.extend([bt/11])
         frame.extend([rt/11])
+        frame.extend([bi/3])
+        frame.extend([ri/3])
         frame.extend(brmk[0])
         frame.extend(brmk[1])
 

@@ -9,14 +9,14 @@ from tqdm import tqdm
 from riot_api_helpers import *
 from config import key
 
-challengers = get_challengers(key)
+challengers = get_challengers(key).json()
 challenger_names = [i['summonerName'] for i in challengers['entries']]
 
 accountIds = []
 for name in tqdm(challenger_names):
     try:
         time.sleep(1.21)
-        id = get_summoner(key, name)['accountId']
+        id = get_summoner(key, name).json()['accountId']
         accountIds.append(id)
     except:
         time.sleep(10)
@@ -28,7 +28,7 @@ gameIds = []
 for idx in tqdm(accountIds):
     try:
         time.sleep(1.21)
-        matches = get_matchlist(key, idx)
+        matches = get_matchlist(key, idx).json()
         for match in matches['matches']:
             if match['queue'] == 420 and match['gameId'] not in gameIds:
                 gameIds.append(match['gameId'])
