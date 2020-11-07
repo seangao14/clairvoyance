@@ -3,6 +3,7 @@ import json
 
 # rid = riot id for the champion
 
+# maps riot id to index
 def idx_from_rid():
     with open('data/champions.json', encoding='utf-8') as f:
         champs = json.load(f)
@@ -21,6 +22,7 @@ def idx_from_rid():
     
     return nums_dict
 
+# maps riot id to champion name
 def name_from_rid():
     with open('data/champions.json', encoding='utf-8') as f:
         champs = json.load(f)
