@@ -7,6 +7,7 @@ import pickle
 
 from tqdm import tqdm
 from riot_api_helpers import *
+from game_parser import *
 from config import key
 
 challengers = get_challengers(key).json()
@@ -36,3 +37,25 @@ for idx in tqdm(accountIds):
         time.sleep(10)
 
 pickle.dump(gameIds, open('data/gameIds.p', 'wb'))
+
+X, y = [], []
+
+for ids in tqdm(gameIds):
+    try:
+        match = get_match(key, f'{ids}').json()
+        timeline = get_timeline(key, f'{ids}').json()
+        game, win = parse_game(timeline, match)
+        X = X + game
+        y = y + win
+        time.sleep(0.5)
+    except Exception as e:
+        print(f'error: {e}')
+        time.sleep(2)
+
+X = np.array(X)
+y = np.array(y)
+
+with open('data/training/X.npy', 'wb') as f:
+    np.save(f, X)
+with open('data/training/y.npy', 'wb') as f:
+    np.save(f, y)
