@@ -1,4 +1,4 @@
-{%extends 'Base.html'%}
+{%extends 'base.html'%}
 
 {%block head%}
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet" type="text/css">
@@ -356,8 +356,8 @@
     
 
   </tbody>
-</table>
 
+</table>
 <table class="table table-striped table-dark">
   <tr>
   <th>Baron Nashor:</th>
@@ -382,7 +382,6 @@
           <input type="radio" name="baron" value=0> Blue Team</label>
         <label class="btn btn-secondary">
           <input type="radio" name="baron" value=1> Red Team</label>
-        
       </div>
     </th>
     <th>
@@ -400,30 +399,6 @@
   </tr>
   <tr>
 </table>
-
-<table class="table table-striped table-dark">
-    <th>Elder buff is currently on:</th><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-</svg>
-    </tr>
-    <tr>
-      <th>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> None
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Blue Team
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Red Team
-          </label>
-        </div>
-      </th>
-    </tr>
-</table>
-
 
 </div>
 {%endblock%}

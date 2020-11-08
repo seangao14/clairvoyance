@@ -12,11 +12,11 @@ nav.Bar('main', [
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('HomePage.html')
+    return render_template('home.html')
 
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():
-    return render_template('Calculator.html')
+    return render_template('calculator.html')
 
 @app.route('/match_history', methods=['POST', 'GET'])
 def match_history():
