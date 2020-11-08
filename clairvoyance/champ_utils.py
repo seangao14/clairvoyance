@@ -5,7 +5,7 @@ import json
 
 # maps riot id to index
 def idx_from_rid():
-    with open('data/champions.json', encoding='utf-8') as f:
+    with open('clairvoyance/data/champions.json', encoding='utf-8') as f:
         champs = json.load(f)
 
     df = pd.DataFrame.from_dict(champs['data'], orient='index')
@@ -24,7 +24,7 @@ def idx_from_rid():
 
 # maps riot id to champion name
 def name_from_rid():
-    with open('data/champions.json', encoding='utf-8') as f:
+    with open('clairvoyance/data/champions.json', encoding='utf-8') as f:
         champs = json.load(f)
 
     df = pd.DataFrame.from_dict(champs['data'], orient='index')
@@ -35,7 +35,7 @@ def name_from_rid():
     return names_dict
 
 def idx_from_name():
-    with open('data/champions.json', encoding='utf-8') as f:
+    with open('clairvoyance/data/champions.json', encoding='utf-8') as f:
         champs = json.load(f)
 
     df = pd.DataFrame.from_dict(champs['data'], orient='index')
