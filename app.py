@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_navigation import Navigation
+from clairvoyance.match_history import *
 
 app = Flask(__name__)
 nav = Navigation(app)
@@ -19,7 +20,10 @@ def index():
 
 @app.route('/matches/<summoner_name>')
 def match_history(summoner_name):
-    return render_template('match_history.html', summoner_name = summoner_name)
+    summoner = get_account_data(summoner_name)
+    if summoner < 0:
+        return render_template('404.html', name = summoner_name)
+    return render_template('match_history.html', summoner = summoner)
 
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():
