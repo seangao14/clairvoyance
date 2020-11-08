@@ -1,4 +1,7 @@
 import numpy as np
+import torch
+import torch.nn.functional as F
+
 from pytorch_model import Net
 from game_parser import *
 
@@ -12,8 +15,8 @@ def predict(X, model_name='pepega1.pth'):
     '''
     an array of win%
     '''
-
+    X = torch.tensor(X).float()
     model = load_model(model_name)
     outputs = model(X)
-
-    return outputs
+    
+    return F.softmax(outputs).detach().numpy()
