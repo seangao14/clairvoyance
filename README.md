@@ -1,4 +1,6 @@
 # clairvoyance
+project of Liquid Hacks 2020
+
 CLairvoyance is a web application that uses a deep learning model to analyze win probabilities in League of Legends.
 
 Data is pulled from challengers players on the NA server. (300 players, 100 matches per player, duplicate matches are thrown out. About 9000 total matches total)
