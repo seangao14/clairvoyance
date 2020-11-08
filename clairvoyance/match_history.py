@@ -1,9 +1,9 @@
 import json
 import requests
 import urllib.parse
-from config import key
-import riot_api_helpers
-from champ_utils import name_rid_dict as champ_dict
+from clairvoyance.champ_utils import name_rid_dict as champ_dict
+from clairvoyance.config import key
+import clairvoyance.riot_api_helpers as riot
 
 class Summoner:
     def __init__(self, id, name, icon, level, matches):
@@ -16,7 +16,7 @@ class Summoner:
 def get_account_data(name):
     """Takes summoner name and returns a Summoner object if successful, or -1 if summoner not found/has no matches"""
     # get summoner
-    r_1 = riot_api_helpers.get_summoner(key, name)
+    r_1 = riot.get_summoner(key, name)
     if r_1.status_code == 404:
         print(f"Error: user {name} does not exist.")
         return -1
@@ -24,7 +24,7 @@ def get_account_data(name):
     account_id = account_data["accountId"]
 
     # get matches
-    r_2 = riot_api_helpers.get_matchlist(key, account_id)
+    r_2 = riot.get_matchlist(key, account_id)
     if r_2.status_code == 404:
         print(f"Error: user {name} does not have any matches.")
         return -1
@@ -43,7 +43,7 @@ def get_account_data(name):
     '''
 
     for game in gameIds:
-        match = riot_api_helpers.get_match(key, game).json()
+        match = riot.get_match(key, game).json()
         # identify the user
         id_ = None
         for m in match['participantIdentities']:

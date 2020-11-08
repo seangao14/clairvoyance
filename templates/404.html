@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+
+{% block body %}
+<div class="container" >
+    <h2>404 Error</h2>
+    {% if name %}
+    <p>Player {{ name }} not found. Currently only summoners in the NA region are supported for lookup.</p>
+    {% else %}
+    <h3>Page not found.</h3>
+    {% endif %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script scr="js/bootstrap.min,js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{%endblock%}

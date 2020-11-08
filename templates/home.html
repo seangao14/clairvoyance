@@ -21,10 +21,12 @@
 
 
     <div class="search-container">
-      <div class="input-group input-group-lg">
-        <input type="text" class="form-control" placeholder="Summoner name">
-        <button id="search-submit" type="submit" class="btn btn-danger">Submit</button>
-      </div>
+      <form method="post">
+        <div class="input-group input-group-lg">
+          <input type="text" name="user" id="user" class="form-control" placeholder="Summoner name">
+          <button id="search-submit" type="submit" value="Search" class="btn btn-danger">Search</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
