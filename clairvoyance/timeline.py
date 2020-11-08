@@ -22,7 +22,7 @@ class Event:
 
 def get_frames(game_id):
     # get timeline
-    res = riot_api_helpers.get_timeline(api_key, game_id)
+    res = riot_api_helpers.get_timeline(key, game_id)
     if res.status_code == 404:
         print("Error: match id " + game_id + " does not exist.")
         return -1

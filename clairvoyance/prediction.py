@@ -1,19 +1,19 @@
 import numpy as np
+from pytorch_model import Net
+from game_parser import *
 
 def load_model(path):
-    model = nn.Sequential(*features)
+    model = Net()
     model.load_state_dict(torch.load(f'models/{path}', map_location=torch.device('cpu')))
     model.eval()
     return model
 
-def predict(timeline, match):
+def predict(X, model_name='pepega1.pth'):
     '''
-    returns [timestamps], [win%s]
+    an array of win%
     '''
 
-    timestamps = [f['timestamp'] for f in timeline['Frames']]
+    model = load_model(model_name)
+    outputs = model(X)
 
-    # mock for graphing
-    win = np.random.normal(0,1, len(timestamps))
-
-    return timestamps, win
+    return outputs
