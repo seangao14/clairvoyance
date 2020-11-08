@@ -191,7 +191,7 @@ body {
   width: 700px;
   justify-content: space-between;
   padding: 20px;
-  background-color: #3d3d3d;
+  background-color: #252525;
   margin-bottom: 20px;
   border-radius: 5px;
 }
@@ -209,10 +209,10 @@ body {
   width: 60px;
 }
 .match-victory {
-  color: #df5151;
+  color: #7deb75;
 }
 .match-defeat {
-  color: #7deb75;
+  color: #df5151;
 }
 
 .match-info,
@@ -279,17 +279,29 @@ body {
 }
 .frame{
     list-style: none;
-    padding-left: 0;
-    margin-left: 10px;
+    padding: 20px;
+    margin-left: 20px;
     min-width: 200px;
     color: #fff;
     text-align: center;
-    background-color: #3d3d3d;
+    background-color: #252525;
     border-radius: 5px;
 }
 
-
+.frame .btn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .g-container{
     width:95%;
     max-width: 95%;
+}
+
+.frame-list::-webkit-scrollbar{
+  width: 0.5em;
+}
+
+.frame-list::-webkit-scrollbar-thumb{
+  background-color: #848484;
+  border-radius: 5px;
 }
