@@ -21,7 +21,6 @@ def index():
 
 @app.route('/matches/<summoner_name>')
 def match_history(summoner_name):
-    print(summoner_name)
     summoner = get_account_data(summoner_name)
     if summoner == -1:
         return render_template('404.html', name = summoner_name)
