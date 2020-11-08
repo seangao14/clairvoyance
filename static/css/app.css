@@ -12,6 +12,7 @@ body, html{
 }
 .container{
     padding-top: 150px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #websiteLogo{
@@ -112,4 +113,97 @@ body, html{
     color: #fff;
     text-align: center;
     background: rgb(86, 160, 230)
+  }
+
+  /* Match History */
+  .mh-container{
+      display: flex;
+  }
+
+  .summ-sidebar{
+      margin-right:40px;
+  }
+  .summ-profile-box{
+      padding: 25px;
+  }
+  .summ-profile{
+      display: flex;
+  }
+  .summ-profile img{
+      width: 70px;
+      height: 70px;
+      margin-right: 20px;
+  }
+
+  .summ-header h4{
+      font-size: 0.8em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 0;
+  }
+
+  .summ-header{
+      width: 300px;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+  }
+  .summ-header:after{
+      content: '';
+      flex: 1;
+      margin: auto;
+      border-bottom: 1px solid #fff;
+      margin-left: .25em;
+  }
+  .summ-profile-box, .matches{
+      background-color: #191919;
+      color: #fff;
+  }
+
+  .matches{
+      padding: 20px;
+  }
+
+  .match-entry{
+      display: flex;
+      width: 400px;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #3D3D3D;
+      margin-bottom: 20px;
+      border-radius: 5px;
+  }
+  .match-info{
+      width: 40%;
+  }
+
+  .match-result{
+      font-weight: bold;
+  }
+  .match-entry img{
+      height: 75px;
+      width: 75px;
+  }
+  .match-victory{
+      color: #DF5151;
+  }
+  .match-defeat{
+      color: #7DEB75;
+  }
+
+  .match-info, .match-stats{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .match-graph{
+      display:flex;
+      align-items: center;
+      padding: 10px;
+  }
+
+  .btn-graph{
+      padding: 7px;
   }

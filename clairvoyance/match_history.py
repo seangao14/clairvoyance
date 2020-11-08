@@ -20,6 +20,8 @@ def get_account_data(name):
     if r_1.status_code == 404:
         print(f"Error: user {name} does not exist.")
         return -1
+    if r_1.status_code >= 400:
+        print(r_1.reason)
     account_data = r_1.json()
     account_id = account_data["accountId"]
 
@@ -34,6 +36,7 @@ def get_account_data(name):
     gameIds = [i['gameId'] for i in match_data['matches']]
     
     '''
+    id = None           # int
     champion = None     # str
     win = None          # bool
     kda = None          # [k, d, a]
@@ -48,7 +51,7 @@ def get_account_data(name):
         id_ = None
         for m in match['participantIdentities']:
             player = m['player']
-            if player['summonerName'] == name:
+            if player['summonerName'].lower() == name.lower():
                 id_ = m['participantId']
                 break
         gamer = match['participants'][id_-1]
@@ -76,6 +79,7 @@ def get_account_data(name):
             queue_type = 'Ranked Flex'
 
         match_dict = {
+            'id': game,
             'champion': champion,
             'win': win,
             'kda': kda,
