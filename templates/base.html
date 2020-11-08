@@ -15,6 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <ul class="navbar-nav">
+      <li class="logo"><a class="nav-link" href="/">Clairvoyance</a></li>
       {% for item in nav.main %}
       <li class="nav-item {{ 'active' if item.is_active else ''}}">
         <a class="nav-link" href ="{{ item.url }}">{{ item.label }}</a>
