@@ -15,6 +15,8 @@
 {%endblock%}
 {%block body%}
 <div class=container>
+  <p>*note: there are no spaces or apostrophes inside champion names, and make sure they are spelled correctly with proper capitalization. Example: 'JarvanIV', 'KogMaw', 'MissFortune', etc...</p>
+<form method="POST">
 <table class="table table-striped table-dark">
   <thead>
     <th colspan="4">Champions</th>
@@ -29,17 +31,17 @@
       <th scope="row">1</th>
       <td>
         <div class="input-group input-group-md">
-         <input type="text" class="form-control" placeholder="Blue team champion 1">
+         <input type="text" class="form-control" name="b1" value="{{data['b1']}}" placeholder="Blue team champion 1">
          <span class ="input-group-btn input-space">
-         <input type="text" class="form-control" placeholder="level">
+         <input type="text" class="form-control" name="b1l" value="{{data['b1l']}}" placeholder="level">
          </span>
         </div>
      </td>
       <td>
           <div class="input-group input-group-md">
-           <input type="text" class="form-control" placeholder="Red team champion 1">
+           <input type="text" class="form-control" name="r1" value="{{data['r1']}}" placeholder="Red team champion 1">
            <span class ="input-group-btn input-space">
-            <input type="text" class="form-control" placeholder="level">
+            <input type="text" class="form-control" name="r1l" value="{{data['r1l']}}" placeholder="level">
             </span>
           </div>
       </td>
@@ -48,17 +50,17 @@
       <th scope="row">2</th>
       <td>
         <div class="input-group input-group-md">
-         <input type="text" class="form-control" placeholder="Blue team champion 1">
+         <input type="text" class="form-control" name="b2" value="{{data['b2']}}" placeholder="Blue team champion 1">
          <span class ="input-group-btn input-space">
-         <input type="text" class="form-control" placeholder="level">
+         <input type="text" class="form-control" name="b2l" value="{{data['b2l']}}" placeholder="level">
          </span>
         </div>
      </td>
       <td>
           <div class="input-group input-group-md">
-           <input type="text" class="form-control" placeholder="Red team champion 1">
+           <input type="text" class="form-control" name="r2" value="{{data['r2']}}" placeholder="Red team champion 1">
            <span class ="input-group-btn input-space">
-           <input type="text" class="form-control" placeholder="level">
+           <input type="text" class="form-control" name="r2l" value="{{data['r2l']}}" placeholder="level">
            </span>
           </div>
       </td>
@@ -67,17 +69,17 @@
       <th scope="row">3</th>
       <td>
         <div class="input-group input-group-md">
-         <input type="text" class="form-control" placeholder="Blue team champion 2">
+         <input type="text" class="form-control" name="b3" value="{{data['b3']}}" placeholder="Blue team champion 2">
          <span class ="input-group-btn input-space">
-         <input type="text" class="form-control" placeholder="level">
+         <input type="text" class="form-control" name="b3l" value="{{data['b3l']}}" placeholder="level">
          </span>
         </div>
      </td>
       <td>
           <div class="input-group input-group-md">
-           <input type="text" class="form-control" placeholder="Red team champion 3">
+           <input type="text" class="form-control" name="r3" value="{{data['r3']}}" placeholder="Red team champion 3">
            <span class ="input-group-btn input-space">
-           <input type="text" class="form-control" placeholder="level">
+           <input type="text" class="form-control" name="r3l" value="{{data['r3l']}}" placeholder="level">
            </span>
           </div>
       </td>
@@ -86,17 +88,17 @@
       <th scope="row">4</th>
       <td>
         <div class="input-group input-group-md">
-         <input type="text" class="form-control" placeholder="Blue team champion 4">
+         <input type="text" class="form-control" name="b4" value="{{data['b4']}}" placeholder="Blue team champion 4">
          <span class ="input-group-btn input-space">
-         <input type="text" class="form-control" placeholder="level">
+         <input type="text" class="form-control" name="b4l" value="{{data['b4l']}}" placeholder="level">
          </span>
         </div>
      </td>
       <td>
           <div class="input-group input-group-md">
-           <input type="text" class="form-control" placeholder="Red team champion 4">
+           <input type="text" class="form-control" name="r4" value="{{data['r4']}}" placeholder="Red team champion 4">
            <span class ="input-group-btn input-space">
-           <input type="text" class="form-control" placeholder="level">
+           <input type="text" class="form-control" name="r4l" value="{{data['r4l']}}" placeholder="level">
            </span>
           </div>
       </td>
@@ -105,17 +107,17 @@
       <th scope="row">5</th>
       <td>
         <div class="input-group input-group-md">
-         <input type="text" class="form-control" placeholder="Blue team champion 5">
+         <input type="text" class="form-control" name="b5" value="{{data['b5']}}" placeholder="Blue team champion 5">
          <span class ="input-group-btn input-space">
-         <input type="text" class="form-control" placeholder="level">
+         <input type="text" class="form-control" name="b5l" value="{{data['b5l']}}" placeholder="level">
          </span>
         </div>
      </td>
       <td>
           <div class="input-group input-group-md">
-           <input type="text" class="form-control" placeholder="Red team champion 5">
+           <input type="text" class="form-control" name="r5" value="{{data['r5']}}" placeholder="Red team champion 5">
            <span class ="input-group-btn input-space">
-           <input type="text" class="form-control" placeholder="level">
+           <input type="text" class="form-control" name="r5l" value="{{data['r5l']}}" placeholder="level">
            </span>
           </div>
       </td>
@@ -135,23 +137,23 @@
   <tbody>
     <tr>
       <th scope="row">Gold</th>
-      <td><input type="text" class="form-control" placeholder="Blue Team Gold"></td>
-      <td><input type="text" class="form-control" placeholder="Red Team Gold"></td>
+      <td><input type="text" class="form-control" name="b_gold" value="{{data['b_gold']}}" placeholder="Blue Team Gold"></td>
+      <td><input type="text" class="form-control" name="r_gold" value="{{data['r_gold']}}" placeholder="Red Team Gold"></td>
     </tr>
     <tr>
       <th scope="row">Kills</th>
-      <td><input type="text" class="form-control" placeholder="Blue Team Kills"></td>
-      <td><input type="text" class="form-control" placeholder="Red Team Kills"></td>
+      <td><input type="text" class="form-control" name="b_kills" value="{{data['b_kills']}}" placeholder="Blue Team Kills"></td>
+      <td><input type="text" class="form-control" name="r_kills" value="{{data['r_kills']}}" placeholder="Red Team Kills"></td>
     </tr>
     <tr>
       <th scope="row">Towers</th>
-      <td><input type="text" class="form-control" placeholder="Blue Team Towers Alive"></td>
-      <td><input type="text" class="form-control" placeholder="Red Team Towers Alive"></td>
+      <td><input type="text" class="form-control" name="b_towers" value="{{data['b_towers']}}" placeholder="Blue Team Towers Alive"></td>
+      <td><input type="text" class="form-control" name="r_towers" value="{{data['r_towers']}}" placeholder="Red Team Towers Alive"></td>
     </tr>
     <tr>
       <th scope="row">Inhibs</th>
-      <td><input type="text" class="form-control" placeholder="Blue Team Inhibitors Alive"></td>
-      <td><input type="text" class="form-control" placeholder="Red Team Inhibitors Alive"></td>
+      <td><input type="text" class="form-control" name="b_inhibs" value="{{data['b_inhibs']}}" placeholder="Blue Team Inhibitors Alive"></td>
+      <td><input type="text" class="form-control" name="r_inhibs" value="{{data['r_inhibs']}}" placeholder="Red Team Inhibitors Alive"></td>
     </tr>
   </tbody>
 </table>
@@ -169,38 +171,38 @@
       <td>Cloud Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="b_air" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="b_air" id="option1" autocomplete="off" value=0 {% if data['b_air']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_air" id="option2" autocomplete="off" value=1 > 1
+            <input type="radio" name="b_air" id="option2" autocomplete="off" value=1 {% if data['b_air']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_air" id="option3" autocomplete="off" value=2 > 2
+            <input type="radio" name="b_air" id="option3" autocomplete="off" value=2 {% if data['b_air']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_air" id="option3" autocomplete="off" value=3 > 3
+            <input type="radio" name="b_air" id="option3" autocomplete="off" value=3 {% if data['b_air']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_air" id="option3" autocomplete="off" value=4 > 4
+            <input type="radio" name="b_air" id="option3" autocomplete="off" value=4 {% if data['b_air']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
       <td>Cloud Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="r_air" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="r_air" id="option1" autocomplete="off" value=0 {% if data['r_air']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_air" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="r_air" id="option2" autocomplete="off" value=1 {% if data['r_air']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_air" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="r_air" id="option3" autocomplete="off" value=2 {% if data['r_air']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_air" id="option3" autocomplete="off" value=3> 3
+            <input type="radio" name="r_air" id="option3" autocomplete="off" value=3 {% if data['r_air']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_air" id="option3" autocomplete="off" value=4> 4
+            <input type="radio" name="r_air" id="option3" autocomplete="off" value=4 {% if data['r_air']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
@@ -209,38 +211,38 @@
       <td>Infernal Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="b_fire" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="b_fire" id="option1" autocomplete="off" value=0 {% if data['b_fire']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_fire" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="b_fire" id="option2" autocomplete="off" value=1 {% if data['b_fire']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_fire" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="b_fire" id="option3" autocomplete="off" value=2 {% if data['b_fire']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_fire" id="option3" autocomplete="off" value=3> 3
+            <input type="radio" name="b_fire" id="option3" autocomplete="off" value=3 {% if data['b_fire']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_fire" id="option3" autocomplete="off" value=4> 4
+            <input type="radio" name="b_fire" id="option3" autocomplete="off" value=4 {% if data['b_fire']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
       <td>Infernal Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="r_fire" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="r_fire" id="option1" autocomplete="off" value=0 {% if data['r_fire']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_fire" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="r_fire" id="option2" autocomplete="off" value=1 {% if data['r_fire']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_fire" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="r_fire" id="option3" autocomplete="off" value=2 {% if data['r_fire']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_fire" id="option3" autocomplete="off" value=3> 3
+            <input type="radio" name="r_fire" id="option3" autocomplete="off" value=3 {% if data['r_fire']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_fire" id="option3" autocomplete="off" value=4> 4
+            <input type="radio" name="r_fire" id="option3" autocomplete="off" value=4 {% if data['r_fire']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
@@ -249,38 +251,38 @@
       <td>Mountain Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="b_earth" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="b_earth" id="option1" autocomplete="off" value=0 {% if data['b_earth']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_earth" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="b_earth" id="option2" autocomplete="off" value=1 {% if data['b_earth']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_earth" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="b_earth" id="option3" autocomplete="off" value=2 {% if data['b_earth']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_earth" id="option3" autocomplete="off" value=3> 3
+            <input type="radio" name="b_earth" id="option3" autocomplete="off" value=3 {% if data['b_earth']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_earth" id="option3" autocomplete="off" value=4> 4
+            <input type="radio" name="b_earth" id="option3" autocomplete="off" value=4 {% if data['b_earth']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
       <td>Mountain Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="r_earth" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="r_earth" id="option1" autocomplete="off" value=0 {% if data['r_earth']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_earth" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="r_earth" id="option2" autocomplete="off" value=1 {% if data['r_earth']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_earth" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="r_earth" id="option3" autocomplete="off" value=2 {% if data['r_earth']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_earth" id="option3" autocomplete="off" value=3> 3
+            <input type="radio" name="r_earth" id="option3" autocomplete="off" value=3 {% if data['r_earth']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_earth" id="option3" autocomplete="off" value=4> 4
+            <input type="radio" name="r_earth" id="option3" autocomplete="off" value=4 {% if data['r_earth']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
@@ -289,38 +291,38 @@
       <td>Ocean Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="b_water" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="b_water" id="option1" autocomplete="off" value=0 {% if data['b_water']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_water" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="b_water" id="option2" autocomplete="off" value=1 {% if data['b_water']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_water" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="b_water" id="option3" autocomplete="off" value=2 {% if data['b_water']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_water" id="option3" autocomplete="off" value=3> 3
+            <input type="radio" name="b_water" id="option3" autocomplete="off" value=3 {% if data['b_water']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_water" id="option3" autocomplete="off" value=4> 4
+            <input type="radio" name="b_water" id="option3" autocomplete="off" value=4 {% if data['b_water']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
       <td>Ocean Drakes</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="r_water" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="r_water" id="option1" autocomplete="off" value=0 {% if data['r_water']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_water" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="r_water" id="option2" autocomplete="off" value=1 {% if data['r_water']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_water" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="r_water" id="option3" autocomplete="off" value=2 {% if data['r_water']=='2' %} checked {% endif %}> 2
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_water" id="option3" autocomplete="off" value=3> 3
+            <input type="radio" name="r_water" id="option3" autocomplete="off" value=3 {% if data['r_water']=='3' %} checked {% endif %}> 3
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_water" id="option3" autocomplete="off" value=4> 4
+            <input type="radio" name="r_water" id="option3" autocomplete="off" value=4 {% if data['r_water']=='4' %} checked {% endif %}> 4
           </label>
         </div>
       </td>
@@ -329,26 +331,26 @@
       <td>Rift Heralds</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="b_herald" id="option1" autocomplete="off" value=0 checked> 0
+            <input type="radio" name="b_herald" id="option1" autocomplete="off" value=0 {% if data['b_herald']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_herald" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="b_herald" id="option2" autocomplete="off" value=1 {% if data['b_herald']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="b_herald" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="b_herald" id="option3" autocomplete="off" value=2 {% if data['b_herald']=='2' %} checked {% endif %}> 2
           </label>
         </div>
       </td>
       <td>Rift Heralds</br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="r_herald" id="option1" autocomplete="off" checked> 0
+            <input type="radio" name="r_herald" id="option1" autocomplete="off" value=0 {% if data['r_herald']=='0' %} checked {% endif %}> 0
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_herald" id="option2" autocomplete="off" value=1> 1
+            <input type="radio" name="r_herald" id="option2" autocomplete="off" value=1 {% if data['r_herald']=='1' %} checked {% endif %}> 1
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="r_herald" id="option3" autocomplete="off" value=2> 2
+            <input type="radio" name="r_herald" id="option3" autocomplete="off" value=2 {% if data['r_herald']=='2' %} checked {% endif %}> 2
           </label>
         </div>
       </td>
@@ -368,22 +370,22 @@
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <!-- 0 = blue team, 1 = red team, 2 = neither -->
         <label class="btn btn-secondary active">
-          <input type="radio" name="baron" value=2 checked> Neither</label>
+          <input type="radio" name="baron" value=2 {% if data['baron']=='2' %} checked {% endif %}> Neither</label>
         <label class="btn btn-secondary">
-          <input type="radio" name="baron" value=0> Blue Team</label>
+          <input type="radio" name="baron" value=0 {% if data['baron']=='0' %} checked {% endif %}> Blue Team</label>
         <label class="btn btn-secondary">
-          <input type="radio" name="baron" value=1> Red Team</label>
+          <input type="radio" name="baron" value=1 {% if data['baron']=='1' %} checked {% endif %}> Red Team</label>
       </div>
     </th>
     <th>
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <!-- 0 = blue team, 1 = red team, 2 = neither -->
         <label class="btn btn-secondary active">
-          <input type="radio" name="elder" value=2 checked> Neither</label>
+          <input type="radio" name="elder" value=2 {% if data['elder']=='2' %} checked {% endif %}> Neither</label>
         <label class="btn btn-secondary">
-          <input type="radio" name="elder" value=0> Blue Team</label>
+          <input type="radio" name="elder" value=0 {% if data['elder']=='0' %} checked {% endif %}> Blue Team</label>
         <label class="btn btn-secondary">
-          <input type="radio" name="elder" value=1> Red Team</label>
+          <input type="radio" name="elder" value=1 {% if data['elder']=='1' %} checked {% endif %}> Red Team</label>
         
       </div>
     </th>
@@ -393,16 +395,29 @@
 
 
 <div class="sidenav">
-  <div class="circle">54.23%</div>
+  <div class="circle">
+    {% if pred is defined %}
+      {{ (pred[0]*100)|round(2) }}%
+    {% else %}
+      50%
+    {% endif %}</div>
 </div>
 
 <div class="sidenav" style="top:540px;">
-  <div class="circle" style="background-color:tomato;">45.77%</div>
+  <div class="circle" style="background-color:tomato;">
+    {% if pred is defined %}
+      {{ ((1-pred[0])*100)|round(2) }}%
+    {% else %}
+      50%
+    {% endif %}
+  </div>
 </div>
 
 <div class="sidenav" style="top:395px; left:1600px;">
-  <button class="btn-circle" style="background-color:#2b9763;">Calculate</button>
+  <button class="btn-circle" type="submit" style="background-color:#2b9763;">Calculate</button>
 </div>
- 
+
+
+</form>
 </div>
 {%endblock%}

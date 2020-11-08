@@ -1,8 +1,8 @@
 import numpy as np
-from champ_utils import idx_rid_dict as champ_dict
-from champ_utils import idx_name_dict
-from riot_api_helpers import *
-from config import key
+from clairvoyance.champ_utils import idx_rid_dict as champ_dict
+from clairvoyance.champ_utils import idx_name_dict
+from clairvoyance.riot_api_helpers import *
+from clairvoyance.config import key
 
 def parse_game(timeline, match):
     # blue win = 0, red win = 1
@@ -193,7 +193,29 @@ def get_game_data(matchId):
 
     return np.array(game)
 
-def custom_game(timestamp, champions, blue_gold, red_gold, blue_exp, red_exp, bk, rk, bt, rt, bi, ri, bm, rm):
+def custom_game(timestamp, champions, blue_gold, red_gold, blue_levels, red_levels, bk, rk, bt, rt, bi, ri, bm, rm):
+    levels_dict = {
+        1: 0,
+        2: 280,
+        3: 660,
+        4: 1140,
+        5: 1720,
+        6: 2400,
+        7: 3180,
+        8: 4060,
+        9: 5040,
+        10: 6120,
+        11: 7300,
+        12: 8580,
+        13: 9960,
+        14: 11440,
+        15: 13020,
+        16: 14700,
+        17: 16480,
+        18: 18360
+    }
+    blue_exp = sum([levels_dict[i] for i in blue_levels])
+    red_exp = sum([levels_dict[i] for i in red_levels])
 
     picked = []
     picked.append([idx_name_dict[champ] for champ in champions])
@@ -206,5 +228,5 @@ def custom_game(timestamp, champions, blue_gold, red_gold, blue_exp, red_exp, bk
     for k in picked[5:10]:
         five_hot2[k] = 1
     data = [timestamp] +  list(np.concatenate((five_hot1, five_hot2))) + [blue_gold/100000] + [red_gold/100000]
-    data = data + [blue_exp] + [red_exp] + [bk/50] + [rk/50] + [bt/11] + [rt/11] + [bi/3]+ [ri/3] + bm + rm
+    data = data + [blue_exp/91800] + [red_exp/91800] + [bk/50] + [rk/50] + [bt/11] + [rt/11] + [bi/3]+ [ri/3] + bm + rm
     return data
