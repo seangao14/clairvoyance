@@ -6,8 +6,8 @@ app = Flask(__name__)
 nav = Navigation(app)
 
 nav.Bar('main', [
-    nav.Item('Home', 'index'),
-    nav.Item('Calculator', 'calculator')
+    nav.Item('home', 'index'),
+    nav.Item('calculator', 'calculator')
 ])
 
 @app.route('/', methods=['POST', 'GET'])
