@@ -16,6 +16,7 @@ def predict(game, model_name='pepega1.pth'):
     '''
     game = torch.tensor(game).float()
     model = load_model(model_name)
+    model.eval()
     outputs = model(game)
     
     return F.softmax(outputs).detach().numpy()[:,0]
