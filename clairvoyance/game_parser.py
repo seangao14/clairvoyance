@@ -286,9 +286,9 @@ def export_frame(matchId, frame):
     ri = frame[314] * 3
 
     bm = frame[315:322]
-    print(bm)
+    # print(bm)
     rm = frame[322:]
-    print(rm)
+    # print(rm)
     baron, elder = 2, 2
 
     if bm[6] == 1:
@@ -366,26 +366,27 @@ def export_frame(matchId, frame):
         'r3l': r_lvl,
         'r4l': r_lvl,
         'r5l': r_lvl,
-        'b_gold': bg,
-        'r_gold': rg,
-        'b_kills': bk,
-        'r_kills': rk,
-        'b_towers': bt,
-        'r_towers': rt,
-        'b_inhibs': bi,
-        'r_inhibs': ri,
-        'baron': baron,
-        'elder': elder,
-        'b_air': bm[0],
-        'b_earth': bm[1],
-        'b_fire': bm[2],
-        'b_water': bm[3],
-        'b_herald': bm[5],
-        'r_air': rm[0],
-        'r_earth': rm[1],
-        'r_fire': rm[2],
-        'r_water': rm[3],
-        'r_herald': rm[5]
+        'b_gold': int(round(bg)),
+        'r_gold': int(round(rg)),
+        'b_kills': int(round(bk)),
+        'r_kills': int(round(rk)),
+        'b_towers': int(round(bt)),
+        'r_towers': int(round(rt)),
+        'b_inhibs': int(round(bi)),
+        'r_inhibs': int(round(ri)),
+        'baron': str(baron),
+        'elder': str(elder),
+        'b_air': str(int(bm[0])),
+        'b_earth': str(int(bm[1])),
+        'b_fire': str(int(bm[2])),
+        'b_water': str(int(bm[3])),
+        'b_herald': str(int(bm[5])),
+        'r_air': str(int(rm[0])),
+        'r_earth': str(int(rm[1])),
+        'r_fire': str(int(rm[2])),
+        'r_water': str(int(rm[3])),
+        'r_herald': str(int(rm[5]))
     }
+    # print(data['r_water'])
 
     return data

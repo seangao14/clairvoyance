@@ -50,6 +50,9 @@
         x: [...Array(predictions.length).keys()],
         y: predictions,
         type: 'scatter',
+        line: {
+            width: 10
+        }, 
         name: 'Blue Side Win %'
     }
     var gold = {
@@ -57,6 +60,9 @@
         y: gd,
         type: 'scatter',
         hoverinfo: 'none',
+        line: {
+            width: 10
+        }, 
         name: 'Gold Difference'
     }
     var xp = {
@@ -64,6 +70,9 @@
         y: xpd,
         type: 'scatter',
         name: 'EXP Difference',
+        line: {
+            width: 10
+        }, 
         hoverinfo: 'none'
     }
     var data = [win, gold, xp];

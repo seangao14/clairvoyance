@@ -66,20 +66,20 @@ def custom_calculator(match_id, frame_id):
         champions = [data['b1'], data['b2'], data['b3'], data['b4'], data['b5'],
                      data['r1'], data['r2'], data['r3'], data['r4'], data['r5']]
         
-        b_levels = [int(data['b1l']), int(data['b2l']), int(data['b3l']), int(data['b4l']), int(data['b5l']), ]
-        r_levels = [int(data['r1l']), int(data['r2l']), int(data['r3l']), int(data['r4l']), int(data['r5l']), ]
+        b_levels = [float(data['b1l']), float(data['b2l']), float(data['b3l']), float(data['b4l']), float(data['b5l']), ]
+        r_levels = [float(data['r1l']), float(data['r2l']), float(data['r3l']), float(data['r4l']), float(data['r5l']), ]
 
-        bg = int(data['b_gold'])
-        rg = int(data['r_gold'])
+        bg = float(data['b_gold'])
+        rg = float(data['r_gold'])
 
-        bk = int(data['b_kills'])
-        rk = int(data['r_kills'])
+        bk = float(data['b_kills'])
+        rk = float(data['r_kills'])
 
-        bt = int(data['b_towers'])
-        rt = int(data['r_towers'])
+        bt = float(data['b_towers'])
+        rt = float(data['r_towers'])
 
-        bi = int(data['b_inhibs'])
-        ri = int(data['r_inhibs'])
+        bi = float(data['b_inhibs'])
+        ri = float(data['r_inhibs'])
 
         # for elder and baron:
         # 0 = blue, 1 = red, 2 = neither
