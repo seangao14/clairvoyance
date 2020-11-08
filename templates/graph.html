@@ -23,7 +23,13 @@
                   </svg></a></li>
                 {% for event in frame.events %}
                 <li>
-                    {{ event.name }}
+                    {% if event.team == 0 %}
+                        <img src='../static/img/eventicons/BLUE_{{event.name}}.png' style="width:20px;height:20px;">
+                    {% endif %}
+
+                    {% if event.team == 1 %}
+                        <img src='../static/img/eventicons/RED_{{event.name}}.png' style="width:20px;height:20px;">
+                    {% endif %}
                 </li>
                 {% endfor %}
             </ul>
