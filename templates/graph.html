@@ -13,6 +13,18 @@
     </div>
     <div class="frames-container">
         <h3>Frames</h3>
+        <ul class="frames-legend">
+            <li><strong>Kill: </strong><img src='../static/img/eventicons/BLUE_CHAMPION_KILL.png'></li>
+            <li><strong>Tower: </strong><img src='../static/img/eventicons/BLUE_TOWER_BUILDING_KILL.png'></li>
+            <li><strong>Inhibitor: </strong><img src='../static/img/eventicons/BLUE_INHIBITOR_BUILDING_KILL.png'></li>
+            <li><strong>Baron: </strong><img src='../static/img/eventicons/BLUE_BARON_NASHOR_KILL.png'></li>
+            <li><strong>Rift Herald: </strong><img src='../static/img/eventicons/BLUE_RIFTHERALD_KILL.png'></li>
+            <li><strong>Cloud Dragon: </strong><img src='../static/img/eventicons/BLUE_AIR_DRAGON_KILL.png'></li>
+            <li><strong>Ocean Dragon: </strong><img src='../static/img/eventicons/BLUE_WATER_DRAGON_KILL.png'></li>
+            <li><strong>Inferno Dragon: </strong><img src='../static/img/eventicons/BLUE_FIRE_DRAGON_KILL.png'></li>
+            <li><strong>Mountain Dragon: </strong><img src='../static/img/eventicons/BLUE_EARTH_DRAGON_KILL.png'></li>
+            <li><strong>Elder Dragon: </strong><img src='../static/img/eventicons/BLUE_ELDER_DRAGON_KILL.png'></li>
+        </ul>
         <div class="frame-list">
             {% for frame in frames %}
             <ul class="frame">
@@ -22,7 +34,7 @@
                     <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
                   </svg></a></li>
                 {% for event in frame.events %}
-                <li>
+                <li class="frame-event">
                     {% if event.team == 0 %}
                         <img src='../static/img/eventicons/BLUE_{{event.name}}.png' style="width:20px;height:20px;">
                     {% endif %}
