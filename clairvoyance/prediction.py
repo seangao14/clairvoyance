@@ -18,7 +18,16 @@ def predict(game, model_name='pepega1.pth'):
     model = load_model(model_name)
     outputs = model(game)
     
-    return F.softmax(outputs).detach().numpy()[:,1]
+    return F.softmax(outputs).detach().numpy()[:,0]
 
 def get_gd(game):
-    pass
+    '''
+    returns 1d array of gold diff, where it is BLUE - RED gold
+    '''
+    return game[:,305]-game[:,306]
+
+def get_xpd(game):
+    '''
+    returns 1d array of exp diff, BLUE - RED
+    '''
+    return game[:,307]-game[:,308]
