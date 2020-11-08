@@ -1,6 +1,7 @@
 import numpy as np
 from clairvoyance.champ_utils import idx_rid_dict as champ_dict
 from clairvoyance.champ_utils import idx_name_dict
+from clairvoyance.champ_utils import name_rid_dict
 from clairvoyance.riot_api_helpers import *
 from clairvoyance.config import key
 
@@ -243,4 +244,148 @@ def custom_game(timestamp, champions, blue_gold, red_gold, blue_levels, red_leve
         five_hot2[k] = 1
     data = [timestamp] +  list(np.concatenate((five_hot1, five_hot2))) + [blue_gold/100000] + [red_gold/100000]
     data = data + [blue_exp/91800] + [red_exp/91800] + [bk/50] + [rk/50] + [bt/11] + [rt/11] + [bi/3]+ [ri/3] + bm + rm
+    return data
+
+def export_frame(matchId, frame):
+    frame = np.array(frame)
+    '''
+    data architecture:
+        time        (1)
+        champions   (304 @ seraphine release)
+        total gold  (2) 305
+        total exp   (2)
+        blue kills  (1)
+        red kills   (1)
+        blue towers (1)
+        red towers  (1)
+        blue inhibs (1)
+        red inhibs  (1)
+        blue monster(7) [air, earth, fire, water, elder, herald, baron]
+        red monster (7)
+    '''
+
+    match = get_match(key, matchId).json()
+    players = match['participants']
+    
+    champ_ids = [player['championId'] for player in players]
+    champs = [name_rid_dict[str(i)] for i in champ_ids]
+
+    bg = frame[305] * 100000
+    rg = frame[306] * 100000
+
+    bxp = frame[307]
+    rxp = frame[308]
+
+    bk = frame[309] * 50
+    rk = frame[310] * 50
+
+    bt = frame[311] * 11
+    rt = frame[312] * 11
+
+    bi = frame[313] * 3
+    ri = frame[314] * 3
+
+    bm = frame[315:322]
+    print(bm)
+    rm = frame[322:]
+    print(rm)
+    baron, elder = 2, 2
+
+    if bm[6] == 1:
+        baron = 0
+    elif rm[6] == 1:
+        baron = 1
+    
+    if bm[4] == 1:
+        elder = 0
+    elif rm[4] == 1:
+        elder = 1
+
+    # calculate exp, return average level
+    bxp *= 91800/5
+    rxp *= 91800/5
+    
+    b_lvl, r_lvl = None, None
+
+    if bxp >= 18360: b_lvl = 18
+    elif bxp >= 16480: b_lvl = 17
+    elif bxp >= 14700: b_lvl = 16
+    elif bxp >= 13020: b_lvl = 15
+    elif bxp >= 11440: b_lvl = 14
+    elif bxp >= 9960: b_lvl = 13
+    elif bxp >= 8580: b_lvl = 12
+    elif bxp >= 7300: b_lvl = 11
+    elif bxp >= 6120: b_lvl = 10
+    elif bxp >= 5040: b_lvl = 9
+    elif bxp >= 4060: b_lvl = 8
+    elif bxp >= 3180: b_lvl = 7
+    elif bxp >= 2400: b_lvl = 6
+    elif bxp >= 1720: b_lvl = 5
+    elif bxp >= 1140: b_lvl = 4
+    elif bxp >= 660: b_lvl = 3
+    elif bxp >= 280: b_lvl = 2
+    else: b_lvl = 1
+
+    if rxp >= 18360: r_lvl = 18
+    elif rxp >= 16480: r_lvl = 17
+    elif rxp >= 14700: r_lvl = 16
+    elif rxp >= 13020: r_lvl = 15
+    elif rxp >= 11440: r_lvl = 14
+    elif rxp >= 9960: r_lvl = 13
+    elif rxp >= 8580: r_lvl = 12
+    elif rxp >= 7300: r_lvl = 11
+    elif rxp >= 6120: r_lvl = 10
+    elif rxp >= 5040: r_lvl = 9
+    elif rxp >= 4060: r_lvl = 8
+    elif rxp >= 3180: r_lvl = 7
+    elif rxp >= 2400: r_lvl = 6
+    elif rxp >= 1720: r_lvl = 5
+    elif rxp >= 1140: r_lvl = 4
+    elif rxp >= 660: r_lvl = 3
+    elif rxp >= 280: r_lvl = 2
+    else: r_lvl = 1
+
+    data = {
+        'b1': champs[0],
+        'b2': champs[1],
+        'b3': champs[2],
+        'b4': champs[3],
+        'b5': champs[4],
+        'r1': champs[5],
+        'r2': champs[6],
+        'r3': champs[7],
+        'r4': champs[8],
+        'r5': champs[9],
+        'b1l': b_lvl,
+        'b2l': b_lvl,
+        'b3l': b_lvl,
+        'b4l': b_lvl,
+        'b5l': b_lvl,
+        'r1l': r_lvl,
+        'r2l': r_lvl,
+        'r3l': r_lvl,
+        'r4l': r_lvl,
+        'r5l': r_lvl,
+        'b_gold': bg,
+        'r_gold': rg,
+        'b_kills': bk,
+        'r_kills': rk,
+        'b_towers': bt,
+        'r_towers': rt,
+        'b_inhibs': bi,
+        'r_inhibs': ri,
+        'baron': baron,
+        'elder': elder,
+        'b_air': bm[0],
+        'b_earth': bm[1],
+        'b_fire': bm[2],
+        'b_water': bm[3],
+        'b_herald': bm[5],
+        'r_air': rm[0],
+        'r_earth': rm[1],
+        'r_fire': rm[2],
+        'r_water': rm[3],
+        'r_herald': rm[5]
+    }
+
     return data
