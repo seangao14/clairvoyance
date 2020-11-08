@@ -1,5 +1,5 @@
 # clairvoyance
-project of Liquid Hacks 2020
+project for Liquid Hacks 2020 - built in 42 hours
 
 CLairvoyance is a web application that uses a deep learning model to analyze win probabilities in League of Legends.
 
