@@ -9,6 +9,21 @@ html {
 body {
   background-color: #26315d;
 }
+
+.navbar{
+  background-color: #191919 !important;
+  color: #fff !important;
+}
+
+.nav-link{
+  color:#fff !important;
+  font-weight: 600;
+}
+.logo .nav-link{
+  text-transform: uppercase;
+  font-weight: 900 !important;
+  margin-right: 20px;
+}
 #websiteSlogan {
   font-family: "Open Sans", sans-serif;
   font-style: italic;
@@ -57,7 +72,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
-  margin-top: -140px;
+  margin-top: -120px;
 }
 
 #search-submit {
@@ -335,4 +350,11 @@ body {
 
 .e-container{
   height: 88vh;
+}
+.table-dark{
+  background-color: #191919;
+}
+
+.table-dark th, .table-dark td, .table-dark thead th {
+  border-color: #191919;
 }
