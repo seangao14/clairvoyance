@@ -34,9 +34,6 @@ body, html{
     padding-bottom: 20px;
 }
 
-form {
-    width: 100%;
-}
 .search-container{
     display: flex;
 }
