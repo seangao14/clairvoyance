@@ -3,6 +3,7 @@ import requests
 import urllib.parse
 from config import key
 import riot_api_helpers
+from champ_utils import name_rid_dict as champ_dict
 
 class Summoner:
     def __init__(self, id, name, icon, level, matches):
@@ -17,7 +18,7 @@ def get_account_data(name):
     # get summoner
     r_1 = riot_api_helpers.get_summoner(key, name)
     if r_1.status_code == 404:
-        print("Error: user " + name + " does not exist.")
+        print(f"Error: user {name} does not exist.")
         return -1
     account_data = r_1.json()
     account_id = account_data["accountId"]
@@ -25,10 +26,67 @@ def get_account_data(name):
     # get matches
     r_2 = riot_api_helpers.get_matchlist(key, account_id)
     if r_2.status_code == 404:
-        print("Error: user " + name + " does not have any matches.")
+        print(f"Error: user {name} does not have any matches.")
         return -1
     match_data = r_2.json()
-    matches = match_data["matches"]
+
+    matches = []
+    gameIds = [i['gameId'] for i in match_data['matches']]
+    
+    '''
+    champion = None     # str
+    win = None          # bool
+    kda = None          # [k, d, a]
+    ss = None           # summoners spell, [ss1, ss2]
+    length = None       # int, in seconds
+    queue = None        # str
+    '''
+
+    for game in gameIds:
+        match = riot_api_helpers.get_match(key, game).json()
+        # identify the user
+        id_ = None
+        for m in match['participantIdentities']:
+            player = m['player']
+            if player['summonerName'] == name:
+                id_ = m['participantId']
+                break
+        gamer = match['participants'][id_-1]
+        stats = gamer['stats']
+        
+        champ_id = gamer['championId']
+        champion = champ_dict[f'{champ_id}']
+
+        win = stats['win']
+
+        kda = [stats['kills'], stats['deaths'], stats['assists']]
+
+        ss = [gamer['spell1Id'], gamer['spell2Id']]
+
+        match_len = match['gameDuration']
+
+        queue_id = match['queueId']
+        if queue_id == 400:
+            queue_type = 'Normal Draft'
+        elif queue_id == 420:
+            queue_type = 'Ranked Solo/Duo'
+        elif queue_id == 430:
+            queue_type = 'Normal Blind'
+        else:
+            queue_type = 'Ranked Flex'
+
+        match_dict = {
+            'champion': champion,
+            'win': win,
+            'kda': kda,
+            'ss': ss,
+            'length': match_len,
+            'queue': queue_type
+        }
+        matches.append(match_dict)
+
+
+
     summoner = Summoner(account_id, account_data["name"], account_data["profileIconId"], account_data["summonerLevel"], matches)
     return summoner
     
