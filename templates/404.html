@@ -1,15 +1,18 @@
-{%extends 'base.html' %}
-
-{% block body %}
-<div class="container" >
-    <h2>404 Error</h2>
+{%extends 'base.html' %} {% block body %}
+<div class="container e-container">
+  <h2>404 Error</h2>
+  <div class="error-content">
     {% if name %}
-    <p>Player {{ name }} not found or has no match history available. Currently only summoners in the NA region are supported for lookup.</p>
-    {% elseif game %}
+    <p>
+      Player {{ name }} not found or has no match history available. Currently
+      only summoners in the NA region are supported for lookup.
+    </p>
+    {% elif game %}
     <p>Game not found.</p>
     {% else %}
     <p>Page not found.</p>
     {% endif %}
+  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

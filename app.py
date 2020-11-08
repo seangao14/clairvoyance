@@ -38,6 +38,76 @@ def graph(match_id):
     xpd = list(np.array(get_xpd(game)) + 0.5)
     return render_template('graph.html', match=match_id, frames=frames, pred=pred, gd=gd, xpd=xpd)
 
+@app.route('/calculator/<match_id>/<frame_id>', methods=['POST', 'GET'])
+def custom_calculator(match_id, frame_id):
+    try:
+        game = get_game_data(match_id)
+    except:
+        print (match_id)
+        return render_template('404.html', game = match_id)
+    frame = game[int(frame_id)]
+    data = export_frame(match_id, frame)
+    # data = {
+    #     'b_air': '0', 
+    #     'b_earth': '0', 
+    #     'b_fire': '0', 
+    #     'b_water': '0',
+    #     'r_air': '0', 
+    #     'r_earth': '0', 
+    #     'r_fire': '0', 
+    #     'r_water': '0', 
+    #     'b_herald': '0',
+    #     'r_herald': '0',
+    #     'baron': '2',
+    #     'elder': '2'
+    # }
+    if request.method == 'POST':
+        data = request.form
+        champions = [data['b1'], data['b2'], data['b3'], data['b4'], data['b5'],
+                     data['r1'], data['r2'], data['r3'], data['r4'], data['r5']]
+        
+        b_levels = [int(data['b1l']), int(data['b2l']), int(data['b3l']), int(data['b4l']), int(data['b5l']), ]
+        r_levels = [int(data['r1l']), int(data['r2l']), int(data['r3l']), int(data['r4l']), int(data['r5l']), ]
+
+        bg = int(data['b_gold'])
+        rg = int(data['r_gold'])
+
+        bk = int(data['b_kills'])
+        rk = int(data['r_kills'])
+
+        bt = int(data['b_towers'])
+        rt = int(data['r_towers'])
+
+        bi = int(data['b_inhibs'])
+        ri = int(data['r_inhibs'])
+
+        # for elder and baron:
+        # 0 = blue, 1 = red, 2 = neither
+        b_baron = 1 if int(data['baron']) == 0 else 0
+        r_baron = 1 if int(data['baron']) == 1 else 0
+
+        b_elder = 1 if int(data['elder']) == 0 else 0
+        r_elder = 1 if int(data['elder']) == 1 else 0
+
+        bm = [int(data['b_air']), int(data['b_earth']), int(data['b_fire']), int(data['b_water']), 
+                b_elder, int(data['b_herald']), b_baron]
+        
+        rm = [int(data['r_air']), int(data['r_earth']), int(data['r_fire']), int(data['r_water']), 
+                r_elder, int(data['r_herald']), r_baron]
+        
+        game = custom_game(timestamp=0.5, champions=champions, 
+            blue_gold=bg, red_gold=rg, blue_levels=b_levels, red_levels=r_levels,
+            bk=bk, rk=rk, bt=bt, rt=rt, bi=bi, ri=ri, bm=bm, rm=rm)
+        # print(game)
+        # print(len(game))
+        pred = predict(game)
+
+        # print(data)
+        # print(type(data))
+
+        return render_template('calculator.html', data=data, pred=pred)
+    return render_template('calculator.html', data=data)
+
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():
     '''

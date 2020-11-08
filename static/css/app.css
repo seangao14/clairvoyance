@@ -280,7 +280,7 @@ body {
 .frame{
     list-style: none;
     padding: 20px;
-    margin-left: 20px;
+    margin-right: 20px;
     min-width: 200px;
     color: #fff;
     text-align: center;
@@ -299,9 +299,40 @@ body {
 
 .frame-list::-webkit-scrollbar{
   width: 0.5em;
+  height: 10px;
 }
 
 .frame-list::-webkit-scrollbar-thumb{
   background-color: #848484;
   border-radius: 5px;
+}
+
+/* .frame-idx{
+  display: flex;
+}
+
+.frame-idx:before, .frame-idx:after {
+  content: "";
+  flex: 1;
+  margin: auto;
+  border-bottom: 1px solid #fff;
+}
+
+.frame-idx:before{
+  margin-right: 10px;
+}
+
+.frame-idx:after{
+  margin-left: 10px;
+} */
+
+.error-content{
+  background-color: #191919;
+  color: #fff;
+  padding: 25px;;
+  border-radius: 5px;
+}
+
+.e-container{
+  height: 88vh;
 }
