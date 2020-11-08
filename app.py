@@ -11,11 +11,11 @@ nav.Bar('main', [
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('HomePage.html')
+    return render_template('home.html')
 
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():
-    return render_template('Calculator.html')
+    return render_template('calculator.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
