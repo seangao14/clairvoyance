@@ -2,7 +2,7 @@ import json
 import requests
 import pprint
 import urllib.parse
-from config import api_key
+from config import key
 import riot_api_helpers
 
 class Point:

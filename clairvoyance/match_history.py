@@ -1,7 +1,7 @@
 import json
 import requests
 import urllib.parse
-from config import api_key
+from config import key
 import riot_api_helpers
 
 class Summoner:
