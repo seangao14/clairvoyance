@@ -217,15 +217,29 @@ def custom_game(timestamp, champions, blue_gold, red_gold, blue_levels, red_leve
     blue_exp = sum([levels_dict[i] for i in blue_levels])
     red_exp = sum([levels_dict[i] for i in red_levels])
 
-    picked = []
+    '''picked = []
     picked.append([idx_name_dict[champ] for champ in champions])
-    picked = picked[0]
+    picked = picked[0]'''
+
+    b_picked, r_picked = [], []
+    for i, champ in enumerate(champions):
+        if i < 5:
+            try:
+                b_picked.append(idx_name_dict[champ])
+            except:
+                pass
+        else:
+            try:
+                r_picked.append(idx_name_dict[champ])
+            except:
+                pass
+
     
     five_hot1 = np.zeros((len(champ_dict),), dtype=int)
-    for j in picked[0:5]:
+    for j in b_picked:
         five_hot1[j] = 1
     five_hot2 = np.zeros((len(champ_dict),), dtype=int)
-    for k in picked[5:10]:
+    for k in r_picked:
         five_hot2[k] = 1
     data = [timestamp] +  list(np.concatenate((five_hot1, five_hot2))) + [blue_gold/100000] + [red_gold/100000]
     data = data + [blue_exp/91800] + [red_exp/91800] + [bk/50] + [rk/50] + [bt/11] + [rt/11] + [bi/3]+ [ri/3] + bm + rm

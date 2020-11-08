@@ -34,7 +34,41 @@ def graph(match_id):
 
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():
-    data = None
+    '''
+    list of keys:
+    b1 - b5        (champion strings)
+    b1l - b5l      (champion levels)
+    r1 - r5
+    r1l - r5l
+    b_gold
+    r_gold
+    b_kills
+    r_kills
+    b_towers
+    r_towers
+    b_inhibs
+    r_inhibs
+    baron
+    elder
+    b_air/earth/fire/water
+    r_air/earth/fire/water
+    '''
+
+
+    data = {
+        'b_air': '0', 
+        'b_earth': '0', 
+        'b_fire': '0', 
+        'b_water': '0',
+        'r_air': '0', 
+        'r_earth': '0', 
+        'r_fire': '0', 
+        'r_water': '0', 
+        'b_herald': '0',
+        'r_herald': '0',
+        'baron': '2',
+        'elder': '2'
+    }
     if request.method == 'POST':
         data = request.form
         champions = [data['b1'], data['b2'], data['b3'], data['b4'], data['b5'],
@@ -76,8 +110,8 @@ def calculator():
         # print(len(game))
         pred = predict(game)
 
-        print(data)
-        print(type(data))
+        # print(data)
+        # print(type(data))
 
         return render_template('calculator.html', data=data, pred=pred)
     return render_template('calculator.html', data=data)
