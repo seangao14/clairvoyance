@@ -29,6 +29,7 @@ def match_history(summoner_name):
 
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():
+    data = None
     if request.method == 'POST':
         data = request.form
         champions = [data['b1'], data['b2'], data['b3'], data['b4'], data['b5'],
@@ -74,7 +75,7 @@ def calculator():
         print(type(data))
 
         return render_template('calculator.html', data=data, pred=pred)
-    return render_template('calculator.html')
+    return render_template('calculator.html', data=data)
 
 # @app.route('/match_history', methods=['POST', 'GET'])
 # def match_history():
