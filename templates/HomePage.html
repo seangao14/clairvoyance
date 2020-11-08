@@ -1,0 +1,60 @@
+{%extends 'Base.html' %}
+
+{%block head%}
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@300&display=swap" rel="stylesheet">
+
+   <style type = "text/css">
+    body{
+      font-size: 62.5%;
+      font-family: arial, sans-serif;
+    }
+    #websiteLogo{
+      height:100px;
+      width:100px;
+    }
+    #websiteTitle{
+      font-size:14em;
+      vertical-align:middle;
+      font-family:'Martel',serif;
+      padding-left:0px;
+      color:white;
+    }
+    #websiteSlogan{
+      font-size:4em;
+      font-family:'Dancing Script',cursive;
+    }
+
+   </style>
+{%endblock%}
+
+{% block body %}
+<div class="container">
+  <div class="text-center">
+    <span id ="websiteTitle">CLAIRVOYANCE</span>
+    <p id="websiteSlogan">Your personal league of legends assistant</p>
+  </div>
+</div>
+
+<div class="text-center"> 
+  <img src = "https://image.flaticon.com/icons/png/512/29/29072.png" id="websiteLogo" alt="Clairvoyance Logo"> 
+</div>
+
+<div class ="container">
+
+  <div class="input-group input-group-lg">
+    <input type="text" class="form-control" placeholder="Please enter your username">
+  </div>
+
+  <div class="text-center">
+    <span class="input-group-btn-xl">
+      <button class="btn btn-danger">Submit</button>
+    </span>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script scr="js/bootstrap.min,js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{%endblock%}
