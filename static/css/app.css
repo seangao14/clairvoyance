@@ -177,10 +177,12 @@ body {
 .matches {
   background-color: #191919;
   color: #fff;
+  border-radius: 2px;
 }
 
 .matches {
     padding: 25px 50px 40px 50px;
+    margin-bottom: 40px;
 }
 
 
@@ -241,4 +243,10 @@ body {
   color: #fff;
   font-weight: 900;
   font-size: 4rem;
+}
+
+/* GRAPH */
+.graph-container{
+    background-color: #191919;
+    color: #fff;
 }

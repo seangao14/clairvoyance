@@ -3,6 +3,7 @@ from flask_navigation import Navigation
 from clairvoyance.match_history import *
 from clairvoyance.game_parser import *
 from clairvoyance.prediction import *
+from clairvoyance.timeline import *
 
 app = Flask(__name__)
 nav = Navigation(app)
@@ -28,8 +29,14 @@ def match_history(summoner_name):
 
 @app.route('/graph/<match_id>')
 def graph(match_id):
-    print(match_id)
-    return render_template('graph.html', match=match_id)
+    frames = get_frames(match_id)
+    if frames == -1:
+        return render_template('404.html', game = match_id)
+    game = get_game_data(match_id)
+    pred = predict(game)
+    gd = list(np.array(get_gd(game)) + 0.5)
+    xpd = list(np.array(get_xpd(game)) + 0.5)
+    return render_template('graph.html', frames=frames, pred=pred, gd=gd, xpd=xpd)
 
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():

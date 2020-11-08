@@ -5,8 +5,10 @@
     <h2>404 Error</h2>
     {% if name %}
     <p>Player {{ name }} not found or has no match history available. Currently only summoners in the NA region are supported for lookup.</p>
+    {% elseif game %}
+    <p>Game not found.</p>
     {% else %}
-    <h3>Page not found.</h3>
+    <p>Page not found.</p>
     {% endif %}
 </div>
 

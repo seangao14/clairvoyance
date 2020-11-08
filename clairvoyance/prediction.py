@@ -19,7 +19,7 @@ def predict(game, model_name='pepega1.pth'):
     model.eval()
     outputs = model(game)
     
-    return F.softmax(outputs).detach().numpy()[:,0]
+    return list(F.softmax(outputs).detach().numpy()[:,0])
 
 def get_gd(game):
     '''

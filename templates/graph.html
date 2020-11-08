@@ -1,12 +1,68 @@
 {%extends 'Base.html'%}
 
 {%block head%}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 {%endblock%}
 
 {%block body%}
 <div class="container">
-  <h2>Match Graph</h2>
+    <h2>Match Graph</h2>
+    <div class="graph-container">
+        <div id="graph">
+        </div>
+    </div>
+    <div class="frames-container">
+        <div class="frame-list">
+            {% for frame in frames %}
+            <p>hi</p>
+            {% endfor %}
+        </div>
+    </div>
+    
   
 </div>
+<script>
+    graph = document.getElementById('graph');
+    var predictions = {{ pred }}
+    var gd = {{ gd }}
+    var xpd = {{ xpd }}
+    var win = {
+        x: [...Array(predictions.length).keys()],
+        y: predictions,
+        type: 'scatter',
+        name: 'Blue Side Win %'
+    }
+    var gold = {
+        x: [...Array(predictions.length).keys()],
+        y: gd,
+        type: 'scatter',
+        hoverinfo: 'none',
+        name: 'Gold Difference'
+    }
+    var xp = {
+        x: [...Array(predictions.length).keys()],
+        y: xpd,
+        type: 'scatter',
+        name: 'EXP Difference',
+        hoverinfo: 'none'
+    }
+    var data = [win, gold, xp];
+    var layout = {
+        yaxis: {title: 'Win %'},
+        yaxis2: {title: 'Gold Difference'},
+        yaxis3: {title: 'EXP Difference'},
+        title: 'Match Statistics',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        font: {
+            color: '#ffffff',
+
+        }
+    };
+
+    Plotly.newPlot('graph', data, layout)
+   
+</script>
 
 {%endblock%}
+

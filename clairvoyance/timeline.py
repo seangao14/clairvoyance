@@ -2,8 +2,8 @@ import json
 import requests
 import pprint
 import urllib.parse
-from config import key
-import riot_api_helpers
+from clairvoyance.config import key
+import clairvoyance.riot_api_helpers as riot
 
 class Point:
     def __init__(self, timestamp, win_percent):
@@ -22,7 +22,7 @@ class Event:
 
 def get_frames(game_id):
     # get timeline
-    res = riot_api_helpers.get_timeline(key, game_id)
+    res = riot.get_timeline(key, game_id)
     if res.status_code == 404:
         print("Error: match id " + game_id + " does not exist.")
         return -1
