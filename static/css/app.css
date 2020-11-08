@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,400;1,700&display=swap');
+
+body, html{
+    height: 100%;
+}
+#websiteSlogan{
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #fff;
+}
 .container{
     padding-top: 150px;
+}
+
+#websiteLogo{
+    height:100px;
+    width:100px;
+}
+
+#websiteTitle{
+    font-size:8em;
+    vertical-align:middle;
+    font-family:'Open Sans',serif;
+    font-weight: 700;
+    line-height: 1;
+    padding-left:0px;
+    color:white;
+}
+
+.home-top{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.search-container{
+    display: flex;
+}
+
+.search-container .input-group{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#home-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: -140px;
+}
+
+
+
+#search-submit{
+    margin-left: 10px;
 }
