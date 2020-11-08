@@ -1,6 +1,8 @@
 import numpy as np
 from champ_utils import idx_rid_dict as champ_dict
 from champ_utils import idx_name_dict
+from riot_api_helpers import *
+from config import key
 
 def parse_game(timeline, match):
     # blue win = 0, red win = 1
@@ -183,6 +185,13 @@ def parse_game(timeline, match):
         data.append(frame)
         y.append(winner)
     return data, y
+
+def get_game_from_matchId(matchId):
+    timeline = get_timeline(key, matchId).json()
+    match = get_match(key, matchId).json()
+    game, _ = parse_game(timeline, match)
+
+    return game
 
 def custom_game(timestamp, champions, blue_gold, red_gold, blue_exp, red_exp, bk, rk, bt, rt, bi, ri, bm, rm):
 
