@@ -1,0 +1,387 @@
+{%extends 'Base.html'%}
+
+{%block head%}
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@300&display=swap" rel="stylesheet">
+    <style>
+      table{
+        text-align: center;
+      }
+      .input-group-btn.input-space{
+        padding-left:15px;
+      }
+    </style>
+{%endblock%}
+{%block body%}
+<div class=container>
+<table class="table table-striped table-dark">
+  <thead>
+    <th colspan="4">Champions</th>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Blue Team</th>
+      <th scope="col">Red Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>
+        <div class="input-group input-group-md">
+         <input type="text" class="form-control" placeholder="Blue team champion 1">
+         <span class ="input-group-btn input-space">
+         <input type="text" class="form-control" placeholder="level">
+         </span>
+        </div>
+     </td>
+      <td>
+          <div class="input-group input-group-md">
+           <input type="text" class="form-control" placeholder="Red team champion 1">
+           <span class ="input-group-btn input-space">
+            <input type="text" class="form-control" placeholder="level">
+            </span>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>
+        <div class="input-group input-group-md">
+         <input type="text" class="form-control" placeholder="Blue team champion 1">
+         <span class ="input-group-btn input-space">
+         <input type="text" class="form-control" placeholder="level">
+         </span>
+        </div>
+     </td>
+      <td>
+          <div class="input-group input-group-md">
+           <input type="text" class="form-control" placeholder="Red team champion 1">
+           <span class ="input-group-btn input-space">
+           <input type="text" class="form-control" placeholder="level">
+           </span>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>
+        <div class="input-group input-group-md">
+         <input type="text" class="form-control" placeholder="Blue team champion 2">
+         <span class ="input-group-btn input-space">
+         <input type="text" class="form-control" placeholder="level">
+         </span>
+        </div>
+     </td>
+      <td>
+          <div class="input-group input-group-md">
+           <input type="text" class="form-control" placeholder="Red team champion 3">
+           <span class ="input-group-btn input-space">
+           <input type="text" class="form-control" placeholder="level">
+           </span>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>
+        <div class="input-group input-group-md">
+         <input type="text" class="form-control" placeholder="Blue team champion 4">
+         <span class ="input-group-btn input-space">
+         <input type="text" class="form-control" placeholder="level">
+         </span>
+        </div>
+     </td>
+      <td>
+          <div class="input-group input-group-md">
+           <input type="text" class="form-control" placeholder="Red team champion 4">
+           <span class ="input-group-btn input-space">
+           <input type="text" class="form-control" placeholder="level">
+           </span>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>
+        <div class="input-group input-group-md">
+         <input type="text" class="form-control" placeholder="Blue team champion 5">
+         <span class ="input-group-btn input-space">
+         <input type="text" class="form-control" placeholder="level">
+         </span>
+        </div>
+     </td>
+      <td>
+          <div class="input-group input-group-md">
+           <input type="text" class="form-control" placeholder="Red team champion 5">
+           <span class ="input-group-btn input-space">
+           <input type="text" class="form-control" placeholder="level">
+           </span>
+          </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <th colspan="4">Map State</th>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Blue Team</th>
+      <th scope="col">Red Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Gold</th>
+      <td><input type="text" class="form-control" placeholder="Blue Team Gold"></td>
+      <td><input type="text" class="form-control" placeholder="Red Team Gold"></td>
+    </tr>
+    <tr>
+      <th scope="row">Kills</th>
+      <td><input type="text" class="form-control" placeholder="Blue Team Kills"></td>
+      <td><input type="text" class="form-control" placeholder="Red Team Kills"></td>
+    </tr>
+    <tr>
+      <th scope="row">Towers</th>
+      <td><input type="text" class="form-control" placeholder="Blue Team Towers Alive"></td>
+      <td><input type="text" class="form-control" placeholder="Red Team Towers Alive"></td>
+    </tr>
+    <tr>
+      <th scope="row">Inhibs</th>
+      <td><input type="text" class="form-control" placeholder="Blue Team Inhibitors Alive"></td>
+      <td><input type="text" class="form-control" placeholder="Red Team Inhibitors Alive"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <th colspan="4">Monster Objectives</th>
+    <tr>
+     <th scope="col">Blue Team</th>
+    <th scope="col">Red Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cloud Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+      <td>Cloud Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Infernal Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+      <td>Infernal Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Mountain Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+      <td>Mountain Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Ocean Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+      <td>Ocean Drakes</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 3
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 4
+          </label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Rift Heralds</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+        </div>
+      </td>
+      <td>Rift Heralds</br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 0
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 1
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 2
+          </label>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-dark">
+  <tr>
+  <th>Baron buff is currently on:</th>
+  </tr>
+  <tr>
+    <th>
+      <input type="radio" name="Baron buff" value="bluebaron"> Blue Team
+      <input type="radio" name="Baron buff" value="redbaron"> Red Team
+      <input type="radio" name="Baron buff" value="nobaron"> None
+    </th>
+  </tr>
+  <tr>
+</table>
+
+<table class="table table-striped table-dark">
+    <th>Elder buff is currently on:</th>
+    </tr>
+    <tr>
+      <th>
+        <input type="radio" name="Drake buff" value="blueeldern"> Blue Team
+        <input type="radio" name="Drake buff" value="redelder"> Red Team
+        <input type="radio" name="Drake buff" value="noelder"> None
+      </th>
+    </tr>
+</table>
+
+
+</div>
+{%endblock%}
