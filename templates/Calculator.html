@@ -366,15 +366,6 @@
   <tr>
     <th>
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> None
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> Blue Team
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option3" autocomplete="off"> Red Team
-        </label>
         <!-- 0 = blue team, 1 = red team, 2 = neither -->
         <label class="btn btn-secondary active">
           <input type="radio" name="baron" value=2 checked> Neither</label>
@@ -399,6 +390,19 @@
   </tr>
   <tr>
 </table>
+
+
+<div class="sidenav">
+  <div class="circle">54.23%</div>
+</div>
+
+<div class="sidenav" style="top:540px;">
+  <div class="circle" style="background-color:tomato;">45.77%</div>
+</div>
+
+<div class="sidenav" style="top:395px; left:1600px;">
+  <button class="btn-circle" style="background-color:#2b9763;">Calculate</button>
+</div>
 
 </div>
 {%endblock%}
