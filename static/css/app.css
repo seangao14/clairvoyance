@@ -250,3 +250,46 @@ body {
     background-color: #191919;
     color: #fff;
 }
+
+.footer{
+    background-color: #191919;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.frames-container{
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #191919;
+    columns: #fff;
+    margin-bottom: 40px;
+}
+
+.frames-container h3{
+    color: #fff;
+    font-weight: bold;
+}
+
+.frame-list{
+    display: flex;
+    flex-wrap: none;
+    overflow-x: scroll;
+    width: 100%;
+}
+.frame{
+    list-style: none;
+    padding-left: 0;
+    margin-left: 10px;
+    min-width: 200px;
+    color: #fff;
+    text-align: center;
+    background-color: #3d3d3d;
+    border-radius: 5px;
+}
+
+
+.g-container{
+    width:95%;
+    max-width: 95%;
+}

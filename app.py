@@ -36,7 +36,7 @@ def graph(match_id):
     pred = predict(game)
     gd = list(np.array(get_gd(game)) + 0.5)
     xpd = list(np.array(get_xpd(game)) + 0.5)
-    return render_template('graph.html', frames=frames, pred=pred, gd=gd, xpd=xpd)
+    return render_template('graph.html', match=match_id, frames=frames, pred=pred, gd=gd, xpd=xpd)
 
 @app.route('/calculator', methods=['POST', 'GET'])
 def calculator():

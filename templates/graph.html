@@ -5,16 +5,28 @@
 {%endblock%}
 
 {%block body%}
-<div class="container">
+<div class="container g-container">
     <h2>Match Graph</h2>
     <div class="graph-container">
         <div id="graph">
         </div>
     </div>
     <div class="frames-container">
+        <h3>Frames</h3>
         <div class="frame-list">
             {% for frame in frames %}
-            <p>hi</p>
+            <ul class="frame">
+                <li>{{frame.idx}}</li>
+                <li><a class="btn btn-primary" href="/calculator/{{match_id}}/{{frame.idx}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                    <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+                  </svg></a></li>
+                {% for event in frame.events %}
+                <li>
+                    {{ event.name }}
+                </li>
+                {% endfor %}
+            </ul>
             {% endfor %}
         </div>
     </div>
@@ -26,6 +38,8 @@
     var predictions = {{ pred }}
     var gd = {{ gd }}
     var xpd = {{ xpd }}
+    // var len = predictions.length
+    var len = 90
     var win = {
         x: [...Array(predictions.length).keys()],
         y: predictions,
@@ -51,12 +65,12 @@
         yaxis: {title: 'Win %'},
         yaxis2: {title: 'Gold Difference'},
         yaxis3: {title: 'EXP Difference'},
+        // xaxis: {range: [0, 90]},
         title: 'Match Statistics',
         plot_bgcolor: 'rgba(0,0,0,0)',
         paper_bgcolor: 'rgba(0,0,0,0)',
         font: {
             color: '#ffffff',
-
         }
     };
 

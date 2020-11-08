@@ -11,7 +11,8 @@ class Point:
         self.win_percent = win_percent
 
 class Frame:
-    def __init__(self, timestamp, events):
+    def __init__(self, idx, timestamp, events):
+        self.idx = idx
         self.timestamp = timestamp
         self.events = events
 
@@ -29,6 +30,7 @@ def get_frames(game_id):
     timeline_data = res.json()
     frame_data = timeline_data["frames"]
     frames = []
+    idx = 0
     for f in frame_data:
         events = []
         for e in f["events"]:
@@ -44,7 +46,8 @@ def get_frames(game_id):
             elif e["type"] == 'CHAMPION_KILL':
                 new_event = Event(e["type"], 0 if e["victimId"] > 4 else 1)
                 events.append(new_event)
-        new_frame = Frame(f["timestamp"], events)
+        new_frame = Frame(idx, f["timestamp"], events)
+        idx += 1
         frames.append(new_frame)
     return frames
     
