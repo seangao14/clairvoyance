@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type = "text/css" href="{{url_for('static',filename='css/bootstrap.css') }}">
-
+    <link rel="stylesheet" type = "text/css" href="{{url_for('static',filename='css/app.css') }}">
     <style>
       .navbar-nav {
         font-size: 1em;
@@ -16,7 +16,12 @@
 <body style = "background-color:#4A97A0">
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      {% for item in nav.main %}
+      <li class="nav-item {{ 'active' if item.is_active else ''}}">
+        <a class="nav-link" href ="{{ item.url }}">{{ item.label }}</a>
+      </li>
+      {% endfor %}
+      <!-- <li class="nav-item active">
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
@@ -24,7 +29,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Poggers</a>
-      </li>
+      </li> -->
     </ul>
   </nav>
       </div>
