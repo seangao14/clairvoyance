@@ -5,8 +5,7 @@
 
 {%block body%}
 <div class="container">
-  <h2>Match History</h2>
-  <h3>{{ summoner.name }}</h3>
+  <h2 id="mh-heading">Match History</h2>
   <div class="mh-container">
     <div class="summ-sidebar">
       <div class="summ-profile-box">
@@ -21,7 +20,7 @@
       </div>
     </div>
     <div class="matches">
-      <h4>Last 10 Games</h4>
+      <div class="matches-header"><h4>Last 10 Games</h4></div>
       <div class="match-list">
         {% for match in summoner.matches %}
           <div class="match-entry">
@@ -41,11 +40,11 @@
             </div>
             <div class="match-stats">
               <div class="match-kda"><strong>KDA</strong>: {{ match.kda[0] }}/{{ match.kda[1] }}/{{ match.kda[2] }}</div>
-              <div class="match-length">{{ (match.length/60)|round(0, 'floor')|int }}:{{ '%02d' % (match.length%60) }}</div>
+              <div class="match-length"><strong>Game Length: </strong>{{ (match.length/60)|round(0, 'floor')|int }}:{{ '%02d' % (match.length%60) }}</div>
             </div>
             <div class="match-graph">
-              <a id="btn-graph" href="/graph/{{ match.id }}">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-graph-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a class="btn btn-primary btn-graph" href="/graph/{{ match.id }}">
+                View Graph <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-graph-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5z"/>
                 </svg>
               </a>
