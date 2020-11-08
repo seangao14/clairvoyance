@@ -191,7 +191,7 @@ def get_game_data(matchId):
     match = get_match(key, matchId).json()
     game, _ = parse_game(timeline, match)
 
-    return game
+    return np.array(game)
 
 def custom_game(timestamp, champions, blue_gold, red_gold, blue_exp, red_exp, bk, rk, bt, rt, bi, ri, bm, rm):
 
