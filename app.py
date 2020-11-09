@@ -38,8 +38,8 @@ def graph(match_id):
             return render_template('404.html', game = match_id)
         game = get_game_data(match_id)
         pred = predict(game)
-        gd = list(np.array(get_gd(game)) + 0.5)
-        xpd = list(np.array(get_xpd(game)) + 0.5)
+        gd = list(np.array(get_gd(game))*3 + 0.5)
+        xpd = list(np.array(get_xpd(game))*4 + 0.5)
         return render_template('graph.html', match=match_id, frames=frames, pred=pred, gd=gd, xpd=xpd)
     except:
         return 'API key error!'
