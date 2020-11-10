@@ -10,8 +10,13 @@ nav = Navigation(app)
 
 nav.Bar('main', [
     nav.Item('Home', 'index'),
-    nav.Item('Calculator', 'calculator')
+    nav.Item('Calculator', 'calculator'),
+    nav.Item('Github', 'github')
 ])
+
+@app.route('/github')
+def github():
+    return redirect('https://github.com/seangao14/clairvoyance')
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
