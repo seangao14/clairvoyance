@@ -14,6 +14,8 @@ Model architecture is a variably layered fully connected network, where the cham
 ## what is not included in this repo:
 - Riot Games API key in clairvoyance/config.py
 - training data. Data is too big to upload. However, there is a data builder, although you need to obtain your own API key and tweak the time.sleep()s so that it does not exceed the rate limit. Training data should be located at clairvoyance/data/training, in .npy format. The notebooks will not run without the data although the model functions fine without it.
+- bootstrap js in static/js
+- ipython notebooks used for training
 
 
 Clairvoyance was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
