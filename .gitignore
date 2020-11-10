@@ -7,3 +7,6 @@ __pycache__
 playground4.ipynb
 /clairvoyance/data/training
 .vscode
+/static/js
+/clairvoyance/pytorch_model.ipynb
+/clairvoyance/sklearn_models.ipynb
