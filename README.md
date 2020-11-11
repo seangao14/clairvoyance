@@ -1,5 +1,5 @@
 # clairvoyance
-project for Liquid Hacks 2020 - built in 42 hours. Further development of this project will be [here](https://github.com/seangao14/clairvoyance2.0)
+project for Liquid Hacks 2020 - built in 42 hours. Further development of this project will be **[here](https://github.com/seangao14/clairvoyance2.0)**
 
 The web app is live at http://clairvoyance.space/  
 Note: our API rate limit is very limited, so if the site incurrs heavy traffic it may exceed the API rate limit. For reference, we are allowed 20/second, and 100/2 minutes. Each summoner look up uses about 12 API calls.
